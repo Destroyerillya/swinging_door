@@ -52,7 +52,7 @@ def swinging_door(data_x,data_y, E):
 	return results_x,results_y
 
 def test_sw_door():
-    conn = sqlite3.connect('original.sqlite', detect_types=sqlite3.PARSE_DECLTYPES)
+    conn = sqlite3.connect('', detect_types=sqlite3.PARSE_DECLTYPES) # data
 
     cursor = conn.cursor()
 
@@ -60,7 +60,7 @@ def test_sw_door():
     data_cpy = cursor.fetchall()
     data_x = [r[0] for r in data_cpy]
     data_y = [r[1] for r in data_cpy]
-    E = 1
+    E = 1 #e-coef
     results_x, results_y = swinging_door(data_x,data_y, E)
     print(len(data_x),len(results_x))
     plt.plot(data_x, data_y)
